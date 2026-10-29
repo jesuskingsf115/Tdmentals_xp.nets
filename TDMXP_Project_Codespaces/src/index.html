@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDMXP - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="icon-header">
+      <img src="assets/logo.png" alt="TDMXP Logo">
+    </div>
+
+    <h2 class="welcome-title">Bienvenido de nuevo</h2>
+
+    <div class="alert-banner">
+      <span>🚨</span>
+      <span><strong>Rede TDMXP:</strong> Sistema de Alertas em Tempo Real ativo.</span>
+    </div>
+
+    <form id="loginForm" style="width: 100%;">
+      <div class="form-group">
+        <label for="username">Usuário ou E-mail *</label>
+        <input type="text" id="username" placeholder="Digite seu usuário ou e-mail" required autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha *</label>
+        <input type="password" id="password" placeholder="Digite sua senha" required autocomplete="current-password">
+      </div>
+
+      <div class="options-row">
+        <label>
+          <input type="checkbox" id="rememberMe"> Lembrar-me
+        </label>
+        <a href="#" style="color: #666; text-decoration: none;">Ajuda?</a>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btnAcceso">
+        <span>Acessar Painel</span>
+      </button>
+    </form>
+
+    <div class="footer-links">
+      <a href="#" id="forgotPass">¿Se te olvidó tu contraseña?</a>
+      <a href="#" id="registerLink">¿No tienes una cuenta? Registre-se</a>
+    </div>
+  </div>
+
+  <div class="notification-toast" id="toast">
+    <span id="toastMsg">Autenticando...</span>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnAcceso');
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      
+      btn.style.opacity = '0.7';
+      btn.innerHTML = '<span>Validando credenciais...</span>';
+      
+      toastMsg.innerText = '🔐 Conectando ao servidor oficial TDMXP...';
+      toast.style.display = 'flex';
+
+      setTimeout(() => {
+        toastMsg.innerText = '✅ Login realizado com sucesso! Redirecionando...';
+        toast.style.borderLeftColor = '#10b981';
+        setTimeout(() => {
+          btn.style.opacity = '1';
+          btn.innerHTML = '<span>Acessar Painel</span>';
+          toast.style.display = 'none';
+          toast.style.borderLeftColor = '#ff6600';
+        }, 2000);
+      }, 1500);
+    });
+
+    document.getElementById('forgotPass').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Instruções para redefinição de senha foram enviadas ao e-mail cadastrado (Integração Resend API).');
+    });
+
+    document.getElementById('registerLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Redirecionando para a página de cadastro de novos usuários...');
+    });
+  </script>
+</body>
+</html>
