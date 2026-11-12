@@ -3,7 +3,6 @@ package br.com.tdmxp.model;
 import br.com.tdmxp.enums.AlertCategory;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 @Entity

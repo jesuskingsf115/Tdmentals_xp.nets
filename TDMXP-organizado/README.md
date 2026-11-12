@@ -5,7 +5,6 @@ Projeto inicial com frontend estático (HTML/CSS/JavaScript), API Java 21 + Spri
 ## Requisitos
 - Docker Desktop (ou Docker Engine + Compose)
 - Git (opcional)
-- Java 21 e Maven apenas se quiser executar o backend fora do Docker
 
 ## Primeira execução
 1. Na raiz do projeto, copie `.env.example` para `.env`.
@@ -47,3 +46,15 @@ O frontend usa `/api` como caminho de API. O Nginx encaminha `/api/` para o serv
 - As tabelas são criadas/atualizadas pelo Hibernate em desenvolvimento (`ddl-auto=update`). Para produção, prefira migrations com Flyway.
 - Autenticação, autorização, integração real com Firecrawl/Resend/Devin, regras completas de alertas e testes de negócio ainda precisam ser implementados.
 - As credenciais reais devem ficar somente no `.env`, nunca no Git.
+
+## Comandos do dia
+# Subir tudo (em segundo plano)
+docker compose up -d
+# Ver o status
+docker compose ps
+# Ver logs em tempo real
+docker compose logs -f backend
+# Parar (mantém os dados do banco)
+docker compose stop
+# Parar e remover os containers (mantém os dados do banco)
+docker compose down

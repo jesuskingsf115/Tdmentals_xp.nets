@@ -29,11 +29,11 @@ public class EmailNotification {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private NotificationStatus status = NotificationStatus.SENT;
+    private NotificationStatus status = NotificationStatus.PENDING;
 
     @PrePersist
     void onCreate() {
         if (sentAt == null) sentAt = LocalDateTime.now();
-        if (status == null) status = NotificationStatus.SENT;
+        if (status == null) status = NotificationStatus.PENDING;
     }
 }
