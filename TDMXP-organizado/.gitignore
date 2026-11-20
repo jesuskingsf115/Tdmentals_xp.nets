@@ -1,9 +1,0 @@
-.env
-.env.*
-!.env.example
-**/target/
-**/node_modules/
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db

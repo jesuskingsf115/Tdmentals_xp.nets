@@ -1,2 +1,16 @@
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+target/
+
+# Node
+node_modules/
+
+# IntelliJ
 .idea/
-.vscode/
+
+# Logs
+*.log

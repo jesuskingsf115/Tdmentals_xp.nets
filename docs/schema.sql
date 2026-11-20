@@ -1,0 +1,3 @@
+-- Referência do modelo inicial. Em desenvolvimento, o Hibernate cria/atualiza
+-- as tabelas a partir das entidades JPA (spring.jpa.hibernate.ddl-auto=update).
+-- Para produção, adote Flyway e migrations versionadas.
